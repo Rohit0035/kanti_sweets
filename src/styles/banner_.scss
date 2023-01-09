@@ -1,0 +1,110 @@
+@import "variables";
+
+.navbar {
+  & .navbar-brand {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    & > .navbar-brand-img {
+      height: 40px;
+    }
+  }
+  /*
+    & .navbar-nav{
+        & > .nav-item{
+            min-width: 50px;
+            & > .nav-link{
+                padding: 8px 10px;
+            }
+        }
+    }
+    */
+}
+
+.my-navbar {
+  padding: 0px 20px;
+  display: flex;
+  box-shadow: $boxShadow;
+  background-color: $appPrimaryColor;
+  & .my-navbar-brand {
+    padding: 10px 25px 10px 0px;
+    border-right: solid 1px $appSecondaryColor;
+    @media (max-width: 575.98px) {
+      border-right: none;
+    }
+    @media (max-width: 767.98px) {
+      border-right: none;
+    }
+    & .my-brand-logo {
+      height: 40px;
+      width: 124px;
+    }
+  }
+  & .my-navbar-toggler {
+    line-height: 40px;
+    color: $appWhite;
+    padding: 10px 0px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  & .my-navbar-items {
+    & > .my-nav-item {
+      line-height: 40px;
+      padding: 10px 15px;
+      &.banner-name {
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: $appWhite;
+        padding-left: 30px;
+      }
+    }
+  }
+  & .my-navbar-options {
+    & > .dropdown {
+      line-height: 40px;
+      padding: 10px 15px;
+      & .nav-link {
+        padding: 0px;
+        color: $appWhite;
+        &:hover {
+          color: $appWhite;
+        }
+      }
+
+      & > .dropdown-menu {
+        padding: 0px;
+        font-size: 14px;
+        & > .account-micro-view {
+          padding: 0px 20px;
+          & > p {
+            margin: 15px 0px;
+            line-height: 1.5;
+          }
+        }
+
+        & > .dropdown-divider {
+          margin: 0px;
+        }
+
+        & .logout-btn {
+          color: $appDanger;
+          background-color: $bodyBackgroundColor;
+        }
+
+        & .dropdown-item {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.doc-bar {
+  padding: 3px 20px;
+  background-color: $appSecondaryColor;
+  color: $appWhite;
+  font-weight: 600;
+  font-size: 16px;
+  display: none;
+}

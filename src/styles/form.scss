@@ -1,0 +1,103 @@
+@import "variables";
+
+@mixin label-styles {
+  margin-bottom: 0px;
+  line-height: 30px;
+  font-size: 14px;
+  color: $appTextColor;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group {
+  height: 90px;
+  & .form-label {
+    @include label-styles();
+  }
+  & label {
+    @include label-styles();
+  }
+  & .form-control {
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 15px;
+    font-size: 14px;
+    color: $appTextColor;
+    &:required {
+      border-left: solid 3px $appDanger;
+    }
+    & .required {
+      border-left: solid 3px $appDanger !important;
+    }
+    &.is-invalid {
+      background-image: none;
+      & + .invalid-feedback {
+        display: block;
+      }
+    }
+  }
+
+  & .invalid-feedback {
+    color: $appDanger;
+    font-size: 12px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  & .err-message {
+    color: $appDanger;
+    font-size: 12px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.select-form-control {
+  & .select-form__value-container {
+    flex-wrap: nowrap !important;
+  }
+  & .select-form__placeholder {
+    font-size: 14px;
+  }
+  &.required {
+    & > .select-form__control {
+      border-left: solid 3px $appDanger !important;
+    }
+  }
+  &.is-invalid {
+    & > .select-form__control {
+      border-color: $appDanger !important;
+    }
+  }
+}
+
+.custom-selection-wrapper {
+  &.required {
+    border-left: solid 3px $appDanger !important;
+  }
+}
+
+.react-datepicker-wrapper {
+  display: block !important;
+  & ~ .invalid-feedback {
+    display: block;
+  }
+  & > .react-datepicker__input-container {
+    & > .form-control {
+      &.required {
+        border-left: solid 3px $appDanger !important;
+      }
+    }
+  }
+}
+
+.form-actions {
+  & > .btn-wrapper {
+    justify-content: flex-start;
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,141 @@
+@import "variables";
+
+.app-sidenav-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  flex-basis: $menuSize;
+  flex-shrink: 0;
+  transition: transform 0.15s ease-in-out;
+  transform: translateX(-$menuSize);
+  width: $menuSize;
+  height: 100vh;
+  z-index: 1038;
+
+  .app-sidenav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-wrap: nowrap;
+    background-color: $appWhite;
+    color: $appTextBoldColor;
+    padding-top: $bannerHeight;
+    & .app-sidenav-menu {
+      flex-grow: 1;
+      box-shadow: inset 0px -11px 8px -10px #ccc;
+      overflow-y: auto;
+      & .nav-header-title {
+        padding: 0px 20px 0px;
+        font-weight: 600;
+        opacity: 0.6;
+        margin-bottom: 5px;
+        color: $themeColor;
+        & + .nav {
+          margin-bottom: 30px;
+        }
+        &:first-of-type {
+          padding-top: 20px;
+        }
+      }
+      & .nav {
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+        & .nav-item {
+          border-bottom: solid 1px $appLightBorderColor;
+          & .nav-link {
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 0px !important;
+            text-decoration: none;
+            color: $appTextBoldColor;
+            &:hover {
+              color: $themeColor;
+            }
+            &.active {
+              color: $themeColor;
+            }
+            position: relative;
+            padding: 10px 20px;
+            transition: all 0.2s linear;
+            &.has-children {
+              &::after {
+                content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+                opacity: 0.5;
+                position: absolute;
+                right: 15px;
+                transition: all 0.25s linear;
+              }
+              &.is-open {
+                color: $themeColor;
+                &::after {
+                  transform: rotate(90deg);
+                  transition: all 0.25s linear;
+                }
+              }
+            }
+          }
+          & .nav {
+            background-color: #f8f9fa;
+            transition: all 0.5s linear;
+            padding-left: 20px;
+            &.closed {
+              display: none;
+            }
+            &.opened {
+              display: block;
+            }
+            & .nav-item {
+              position: relative;
+              overflow: hidden;
+              border-bottom: none;
+              &:last-child {
+                &::before {
+                  height: 22px !important;
+                }
+              }
+              &::before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                border-left: solid 1px #ccc;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 1px;
+                background-color: #ccc;
+                top: 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+    & .app-sidenav-footer {
+      padding: 0.75rem;
+      flex-shrink: 0;
+      background-color: #e9ecef;
+    }
+  }
+  @media (min-width: 992px) {
+    transform: translateX(0);
+  }
+}
+
+.app-body-fixed {
+  // Body
+  &.app-sidenav-toggled {
+    // Body
+    & .app-wrapper {
+      & > .app-sidenav-wrapper {
+        transform: translateX(0);
+        @media (min-width: 992px) {
+          transform: translateX(-$menuSize);
+        }
+      }
+    }
+  }
+}

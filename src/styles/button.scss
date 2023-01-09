@@ -1,0 +1,84 @@
+@import "variables";
+
+@mixin btn-basic($color, $backgroundColor) {
+  color: $color;
+  background-color: $backgroundColor;
+  border-color: $backgroundColor;
+  box-shadow: none !important;
+}
+@mixin btn-hover-basic() {
+  box-shadow: $boxShadow !important;
+}
+
+.btn {
+  border-radius: 5px;
+  min-width: 120px;
+  text-align: center;
+  font-size: 14px;
+  &.app-btn-primary {
+    @include btn-basic($appWhite, $appPrimaryColor);
+    &:hover {
+      color: $appWhite;
+    }
+  }
+  &.app-btn-secondary {
+    @include btn-basic($appWhite, $appSecondaryColor);
+    &:hover {
+      color: $appWhite;
+    }
+  }
+  &.app-btn-danger {
+    @include btn-basic($appWhite, $appDanger);
+    &:hover {
+      color: $appWhite;
+    }
+  }
+  &.app-btn-default {
+    @include btn-basic($appTextBoldColor, $appButtonLight);
+    &:hover {
+      color: $appTextBoldColor;
+    }
+  }
+  &.app-btn-light {
+    @include btn-basic($appTextBoldColor, $appButtonLight);
+    &:hover {
+      color: $appTextBoldColor;
+    }
+  }
+
+  &:hover {
+    @include btn-hover-basic();
+  }
+
+  &.app-full {
+    width: 100%;
+  }
+
+  &.table-action-button {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 12px;
+  }
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  & > .btn {
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+.action {
+  cursor: pointer;
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.text-danger {
+  color: $appDanger;
+}

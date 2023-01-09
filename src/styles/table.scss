@@ -1,0 +1,240 @@
+@import "variables";
+
+$tableHoverColor: #ddecf3;
+
+@mixin cell-style {
+  padding: 0px 20px;
+  height: 50px;
+  background-color: $appWhite;
+  font-size: 12px;
+  vertical-align: middle;
+  border-color: $appBorderColor;
+}
+
+@mixin cell-header-style {
+  padding: 0px 20px;
+  background-color: $appTextBoldColor !important;
+  height: 30px;
+  color: $appWhite !important;
+  font-weight: 600;
+  font-size: 12px;
+  border: none !important;
+  vertical-align: middle;
+}
+
+.custom-table-wrapper {
+  & > .custom-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 5px;
+    & > .custom-table-lables {
+      display: flex;
+      justify-content: flex-start;
+      color: $appTextColor;
+      font-size: 14px;
+      line-height: 30px;
+      & > .custom-table-title {
+        text-transform: capitalize;
+        font-weight: 600;
+      }
+
+      & > .custom-table-total-count {
+        margin-right: 20px;
+        font-weight: 600;
+        &::before {
+          content: "|";
+          margin: 0px 10px;
+        }
+      }
+    }
+
+    & > .custom-table-actions {
+      & .form-group {
+        height: auto !important;
+        margin-bottom: 0px;
+        &.search-form-group {
+          position: relative;
+          & > .form-control {
+            padding-right: 25px;
+          }
+          & .search-wrapper {
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            color: $iconColor;
+            font-weight: bold;
+            height: 100%;
+          }
+        }
+        & > .form-control {
+          height: 30px;
+          line-height: 30px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  & > .table-responsive {
+    box-shadow: $boxShadow;
+    margin-bottom: 10px !important;
+    border-radius: 5px;
+    & > .custom-table {
+      //border: 1px solid $appBorderColor;
+      border: none !important;
+      margin-bottom: 0px !important;
+      & th {
+        @include cell-header-style();
+      }
+      & td {
+        @include cell-style();
+        &.table-cell-link {
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+      & > thead {
+        & > tr {
+          & > th {
+            @include cell-header-style();
+          }
+        }
+      }
+
+      & > tbody {
+        & > tr {
+          & > td {
+            @include cell-style();
+          }
+          &:hover {
+            & > td {
+              background-color: $tableHoverColor !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & > .custom-table-options {
+    display: flex;
+    justify-content: space-between;
+    & > .option-item {
+      display: flex;
+      align-items: center;
+      & > .records-per-page-wrapper {
+        display: flex;
+        align-items: center;
+        & .form-group {
+          margin-bottom: 0px;
+          height: auto !important;
+        }
+        & select {
+          &.records-per-page {
+            height: 30px;
+            line-height: 30px;
+            width: 50px;
+            padding: 0px 5px;
+            text-align: center;
+          }
+        }
+
+        & p {
+          &.records-per-page {
+            margin-bottom: 0px;
+            font-size: 12px;
+            margin-left: 10px;
+          }
+        }
+      }
+      & > .page-info {
+        margin-bottom: 0px;
+        font-size: 12px;
+      }
+
+      & .pagination {
+        margin-left: 50px;
+        margin-bottom: 0px;
+        & > .page-item {
+          &.disabled {
+            & > .page-link {
+              color: $iconColor !important;
+            }
+          }
+          &.active {
+            & > .page-link {
+              color: #fff !important;
+              background-color: $iconColor;
+            }
+          }
+          & > .page-link {
+            font-size: 12px;
+            padding: 5px 10px;
+            height: 30px;
+            color: $appTextColor !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  & th {
+    background-color: #eee !important;
+  }
+  & .table-embedded-input-wrapper {
+    padding: 0px;
+    position: relative;
+    & > input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 0px 0.5rem;
+      &:focus {
+        border: none !important;
+      }
+      &:focus-visible {
+        border: none !important;
+      }
+    }
+
+    /*
+    &::before {
+      content: "\f4c9";
+      position: absolute;
+      right: 10px;
+      opacity: 0.6;
+      display: inline-block;
+      font-family: bootstrap-icons !important;
+      font-style: normal;
+      font-weight: 400 !important;
+      -webkit-font-feature-settings: normal;
+      font-feature-settings: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      vertical-align: -0.125em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    */
+  }
+}
+
+.psd-display {
+  & tbody {
+    & td {
+      line-height: 25px;
+    }
+    & th {
+      line-height: 25px;
+    }
+  }
+}
+
+.text-right {
+  text-align: right;
+}

@@ -1,0 +1,27 @@
+// Colors
+$appPrimaryColor: #8219a4;
+$appSecondaryColor: #b951dc;
+$themeColor: #{$appPrimaryColor};
+$themeColorDark: #{$appSecondaryColor};
+$themeColorLight: #80d6ff;
+$appTextColor: #4f5c65;
+$appTextBoldColor: #353e44;
+$appBorderColor: #dee2e6;
+$appLightBorderColor: #eeeeee;
+$appButtonLight: #e0e0e0;
+$iconColor: #b3b3b3;
+$appBlack: #000000;
+$appWhite: #ffffff;
+$appLight: #e2e6ea;
+$appDanger: #dd2c00;
+$bodyBackgroundColor: #efefef;
+$appLinkColor: #0dcaf0;
+$boxShadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+  rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+$appPrimaryOpacity: rgba(28, 131, 100, 0.5);
+$appSecondaryOpacity: rgba(150, 237, 76, 0.7);
+
+// Sizes
+$menuSize: 240px;
+$bannerHeight: 60px;
+$appTextSize: 14px;

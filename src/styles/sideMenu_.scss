@@ -1,0 +1,43 @@
+@import "variables";
+
+@mixin menu-height($ignore) {
+  min-height: calc(100vh - #{$ignore});
+  max-height: calc(100vh - #{$ignore});
+}
+
+.menu-wrapper {
+  width: 220px;
+  min-width: 220px;
+  @include menu-height(60px);
+  box-sizing: border-box;
+  border-right: solid 1px $appBorderColor;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: $appWhite;
+  border-top: solid 1px $appBorderColor;
+  & .list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0px;
+    & > .menu-item {
+      border-bottom: solid 1px $appBorderColor;
+      & > .menu-link {
+        display: block;
+        padding: 0px 20px;
+        line-height: 40px;
+        height: 40px;
+        font-size: 14px;
+        color: $appTextBoldColor;
+        text-decoration: none;
+        &:hover {
+          color: $appPrimaryColor;
+        }
+        &.active {
+          color: $appPrimaryColor;
+          // font-weight: 600;
+        }
+      }
+    }
+  }
+}
