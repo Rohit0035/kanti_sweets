@@ -28,7 +28,7 @@ export const MENU = [
       {
         id: "1",
         label: "Companies",
-        link: "/home",
+        link: "/company/companylist",
         res: "Home",
         scope: "Read",
       },

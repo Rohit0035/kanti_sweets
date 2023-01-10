@@ -31,6 +31,8 @@ const Home = lazy(() => import("./component/Home"));
 
 const UserList = lazy(() => import("./component/users/UserList"));
 
+const CompanyList = lazy(() => import("./component/company/CompanyList"));
+
 const Logout = lazy(() => import("./component/Auth/Logout"));
 
 toast.configure({
@@ -101,6 +103,10 @@ function App() {
 
                     <Route path="/users/userlist" exact>
                       <UserList />
+                    </Route>
+
+                    <Route path="/company/companylist" exact>
+                      <CompanyList />
                     </Route>
                     <Route path="/logout" exact>
                       <Logout />
